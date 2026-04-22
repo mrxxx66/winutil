@@ -7,6 +7,12 @@
       "url": null
     },
     {
+      "code": "zh-CN",
+      "name": "简体中文",
+      "version": "1.0.0",
+      "url": "https://raw.githubusercontent.com/mrxxx66/winutil/feature/i18n-support/locales/zh-CN.json"
+    },
+    {
       "code": "zh-TW",
       "name": "繁體中文",
       "version": "1.0.0",

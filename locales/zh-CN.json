@@ -1,0 +1,61 @@
+{
+  "_metadata": {
+    "name": "简体中文",
+    "version": "1.0.0",
+    "author": "WinUtil Contributors"
+  },
+  "ui": {
+    "installTab": "安装",
+    "tweaksTab": "调整",
+    "configTab": "配置",
+    "updatesTab": "更新",
+    "win11IsoTab": "Win11 ISO",
+    "install": "安装",
+    "uninstall": "卸载",
+    "upgrade": "升级",
+    "search": "搜索...",
+    "getInstalled": "获取已安装",
+    "presets": "预设",
+    "runTweaks": "运行调整",
+    "undoTweaks": "撤销调整",
+    "refresh": "刷新",
+    "browse": "浏览",
+    "download": "下载",
+    "mount": "挂载",
+    "modify": "修改",
+    "export": "导出",
+    "writeUsb": "写入 USB",
+    "cleanReset": "清除并重置",
+    "import": "导入",
+    "exportConfig": "导出配置",
+    "about": "关于",
+    "documentation": "文档",
+    "sponsors": "赞助者",
+    "theme": "主题",
+    "themeAuto": "自动",
+    "themeDark": "深色",
+    "themeLight": "浅色",
+    "fontScaling": "字体缩放",
+    "language": "语言",
+    "winget": "WinGet",
+    "choco": "Chocolatey"
+  },
+  "categories": {
+    "browsers": "浏览器",
+    "development": "开发工具",
+    "utilities": "工具程序",
+    "games": "游戏",
+    "social": "社交",
+    "media": "媒体",
+    "essentialTweaks": "基本调整",
+    "advancedTweaks": "高级调整",
+    "customizeTweaks": "自定义调整"
+  },
+  "descriptions": {
+    "telemetry": "禁用遥测",
+    "bloatware": "移除预装应用",
+    "debloat": "清理系统",
+    "essentialTweaks": "基本系统调整",
+    "advancedTweaks": "高级系统调整"
+  }
+}
