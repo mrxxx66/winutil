@@ -1,27 +1,7 @@
-function Get-WinUtilAvailableLanguages {
-    <#
-    .SYNOPSIS
-    Returns available languages from the manifest
-    #>
-    [CmdletBinding()]
-    param()
-
-    process {
-        return $sync.configs.locales.locales | ForEach-Object {
-            [PSCustomObject]@{
-                Code = $_.code
-                Name = $_.name
-                Version = $_.version
-                Url = $_.url
-            }
-        }
-    }
-}
-
 function Get-WinUtilLocale {
     <#
     .SYNOPSIS
-    Gets locale data with 3-tier resolution: memory -> cache -> download
+    Gets locale data from embedded locales
     #>
     [CmdletBinding()]
     param(
@@ -41,51 +21,51 @@ function Get-WinUtilLocale {
             $sync.locales = @{}
         }
 
-        # Tier 2: Local cache directory
-        $cacheDir = "$env:TEMP\WinUtil_Locales"
-        $cacheFile = Join-Path $cacheDir "$Code.json"
-
-        if (Test-Path $cacheFile) {
-            Write-Debug "Locale '$Code' found in local cache"
-            $locale = Get-Content $cacheFile -Raw | ConvertFrom-Json
-            $sync.locales[$Code] = $locale
-            return $locale
+        # Tier 2: Embedded locale (from compiled locales)
+        if ($null -ne $sync.configs.locales.$Code) {
+            Write-Debug "Locale '$Code' found in embedded locales"
+            $sync.locales[$Code] = $sync.configs.locales.$Code
+            return $sync.locales[$Code]
         }
 
-        # Tier 3: Download from URL
-        $manifest = $sync.configs.locales.locales | Where-Object { $_.code -eq $Code }
-        if ($null -ne $manifest -and $null -ne $manifest.url) {
-            Write-Debug "Downloading locale '$Code' from $($manifest.url)"
-            try {
-                $response = Invoke-WebRequest -Uri $manifest.url -UseBasicParsing -TimeoutSec 30
-                $locale = $response.Content | ConvertFrom-Json
-
-                # Save to local cache
-                if (-not (Test-Path $cacheDir)) {
-                    New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
-                }
-                Set-Content -Path $cacheFile -Value ($locale | ConvertTo-Json -Depth 10) -Encoding UTF8
-
-                $sync.locales[$Code] = $locale
-                return $locale
-            }
-            catch {
-                Write-Warning "Failed to download locale '$Code': $_"
-                return $null
-            }
-        }
-
-        # Fallback: if code is 'en', return embedded defaults
+        # Fallback: if code is 'en', return empty object
         if ($Code -eq 'en') {
             return @{
                 _metadata = @{ name = "English"; version = "1.0.0" }
                 ui = @{}
                 categories = @{}
                 descriptions = @{}
+                applications = @{}
             }
         }
 
         return $null
+    }
+}
+
+function Get-WinUtilAvailableLanguages {
+    <#
+    .SYNOPSIS
+    Returns available languages from embedded locale data
+    #>
+    [CmdletBinding()]
+    param()
+
+    process {
+        $languages = @()
+        # Get all embedded locale names (except manifest)
+        $localeNames = $sync.configs.locales.PSObject.Properties.Name | Where-Object { $_ -ne 'manifest' }
+        foreach ($name in $localeNames) {
+            $locale = $sync.configs.locales.$name
+            if ($null -ne $locale -and $null -ne $locale._metadata) {
+                $languages += [PSCustomObject]@{
+                    Code = $name
+                    Name = $locale._metadata.name
+                    Version = $locale._metadata.version
+                }
+            }
+        }
+        return $languages
     }
 }
 

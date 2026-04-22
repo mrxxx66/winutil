@@ -1,0 +1,25 @@
+{
+  "_metadata": {"name": "Simplified Chinese", "version": "1.0.0"},
+  "ui": {
+    "installTab": "Install",
+    "tweaksTab": "Tweaks",
+    "configTab": "Config",
+    "updatesTab": "Updates",
+    "win11IsoTab": "Win11 ISO",
+    "install": "Install",
+    "uninstall": "Uninstall",
+    "upgrade": "Upgrade",
+    "search": "Search",
+    "getInstalled": "Get Installed",
+    "presets": "Presets",
+    "runTweaks": "Run Tweaks",
+    "undoTweaks": "Undo Tweaks"
+  },
+  "categories": {
+    "Browsers": "Browsers",
+    "Development": "Development",
+    "Utilities": "Utilities",
+    "Games": "Games",
+    "Microsoft Tools": "Microsoft Tools"
+  }
+}

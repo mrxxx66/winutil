@@ -55,11 +55,12 @@ $excludedFiles += @(
     '.\locales\*.json'
 )
 
-# Always include manifest.json from locales
-$localeManifestPath = ".\locales\manifest.json"
-$localeManifestContent = $null
-if (Test-Path $localeManifestPath) {
-    $localeManifestContent = [System.IO.File]::ReadAllText((Resolve-Path $localeManifestPath), [System.Text.Encoding]::UTF8)
+# Embed all locale files at compile time
+$localeFiles = @{}
+if (Test-Path ".\locales") {
+    Get-ChildItem ".\locales" -Filter "*.json" | ForEach-Object {
+        $localeFiles[$_.BaseName] = [System.IO.File]::ReadAllText($_.FullName, [System.Text.Encoding]::UTF8)
+    }
 }
 
 $msg = "Pre-req: Code Formatting"
@@ -76,9 +77,11 @@ Update-Progress "Adding: Functions" 20
 Get-ChildItem "functions" -Recurse -File | ForEach-Object {
     $script_content.Add($(Get-Content $psitem.FullName))
     }
-Update-Progress "Adding: Locale Manifest" 35
-if ($null -ne $localeManifestContent) {
-    $script_content.Add("`$sync.configs.locales = @'`r`n$localeManifestContent`r`n'@ | ConvertFrom-Json")
+Update-Progress "Adding: Locale Files" 35
+$script_content.Add("`$sync.configs.locales = @{}")
+foreach ($localeName in $localeFiles.Keys) {
+    $localeJson = $localeFiles[$localeName]
+    $script_content.Add("`$sync.configs.locales.$localeName = @'`r`n$localeJson`r`n'@ | ConvertFrom-Json")
 }
 Update-Progress "Adding: Config *.json" 40
 Get-ChildItem "config" | Where-Object {$psitem.extension -eq ".json"} | ForEach-Object {
