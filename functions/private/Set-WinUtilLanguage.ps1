@@ -244,6 +244,33 @@ function Initialize-WinUtilLanguageMenu {
         # Load available languages from manifest
         $languages = Get-WinUtilAvailableLanguages
 
+        # Detect system language and set default
+        $systemLocale = Get-Culture | Select-Object -ExpandProperty IetfLanguageTag
+        Write-Debug "System locale detected: $systemLocale"
+
+        # Map system locale to supported language (fuzzy match for Chinese)
+        $defaultLang = 'en'
+        foreach ($lang in $languages) {
+            if ($lang.Code -eq 'en') { continue }
+            if ($systemLocale -like "$($lang.Code)*" -or $systemLocale -like "*$($lang.Code)*") {
+                $defaultLang = $lang.Code
+                Write-Debug "Matched system locale to: $($lang.Code)"
+                break
+            }
+        }
+
+        # Auto-apply default language if not English
+        if ($defaultLang -ne 'en') {
+            Write-Debug "Auto-applying default language: $defaultLang"
+            Set-WinUtilLanguage -Code $defaultLang
+            # Download locale if needed
+            $null = Get-WinUtilLocale -Code $defaultLang
+            if ($null -ne $sync.uiTranslations) {
+                Set-WinUtilLanguageUI
+            }
+            Rebuild-PanelsWithLanguage
+        }
+
         # Clear existing menu items (except header)
         if ($sync.LanguagePopupMenu.Items.Count -gt 1) {
             while ($sync.LanguagePopupMenu.Items.Count -gt 1) {
