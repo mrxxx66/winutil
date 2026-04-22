@@ -51,8 +51,16 @@ $excludedFiles += @(
     '.\LICENSE',
     "$preprocessingFilePath",
     '*.png',
-    '.\.preprocessor_hashes.json'
+    '.\.preprocessor_hashes.json',
+    '.\locales\*.json'
 )
+
+# Always include manifest.json from locales
+$localeManifestPath = ".\locales\manifest.json"
+$localeManifestContent = $null
+if (Test-Path $localeManifestPath) {
+    $localeManifestContent = [System.IO.File]::ReadAllText((Resolve-Path $localeManifestPath), [System.Text.Encoding]::UTF8)
+}
 
 $msg = "Pre-req: Code Formatting"
 Invoke-Preprocessing -WorkingDir "$workingdir" -ExcludedFiles $excludedFiles -ProgressStatusMessage $msg
@@ -68,6 +76,10 @@ Update-Progress "Adding: Functions" 20
 Get-ChildItem "functions" -Recurse -File | ForEach-Object {
     $script_content.Add($(Get-Content $psitem.FullName))
     }
+Update-Progress "Adding: Locale Manifest" 35
+if ($null -ne $localeManifestContent) {
+    $script_content.Add("`$sync.configs.locales = @'`r`n$localeManifestContent`r`n'@ | ConvertFrom-Json")
+}
 Update-Progress "Adding: Config *.json" 40
 Get-ChildItem "config" | Where-Object {$psitem.extension -eq ".json"} | ForEach-Object {
     $json = (Get-Content $psitem.FullName -Raw)

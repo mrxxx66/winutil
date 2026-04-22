@@ -430,6 +430,9 @@ $sync["Form"].Add_Loaded({
     $sync["Form"].MaxHeight = [Double]::PositiveInfinity
 })
 
+# Initialize language menu
+Initialize-WinUtilLanguageMenu
+
 $NavLogoPanel = $sync["Form"].FindName("NavLogoPanel")
 $NavLogoPanel.Children.Add((Invoke-WinUtilAssets -Type "logo" -Size 25)) | Out-Null
 
@@ -450,8 +453,14 @@ $sync["Form"].Add_Activated({
 
 $sync["ThemeButton"].Add_Click({
     Write-Debug "ThemeButton clicked"
-    Invoke-WPFPopup -PopupActionTable @{ "Settings" = "Hide"; "Theme" = "Toggle"; "FontScaling" = "Hide" }
+    Invoke-WPFPopup -PopupActionTable @{ "Settings" = "Hide"; "Theme" = "Toggle"; "FontScaling" = "Hide"; "Language" = "Hide" }
 })
+
+$sync["LanguageButton"].Add_Click({
+    Write-Debug "LanguageButton clicked"
+    Invoke-WPFPopup -PopupActionTable @{ "Settings" = "Hide"; "Theme" = "Hide"; "FontScaling" = "Hide"; "Language" = "Toggle" }
+})
+
 $sync["AutoThemeMenuItem"].Add_Click({
     Write-Debug "About clicked"
     Invoke-WPFPopup -Action "Hide" -Popups @("Theme")

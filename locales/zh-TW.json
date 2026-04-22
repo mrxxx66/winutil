@@ -1,0 +1,61 @@
+{
+  "_metadata": {
+    "name": "繁體中文",
+    "version": "1.0.0",
+    "author": "WinUtil Contributors"
+  },
+  "ui": {
+    "installTab": "安裝",
+    "tweaksTab": "調整",
+    "configTab": "設定",
+    "updatesTab": "更新",
+    "win11IsoTab": "Win11 ISO",
+    "install": "安裝",
+    "uninstall": "解除安裝",
+    "upgrade": "升級",
+    "search": "搜尋...",
+    "getInstalled": "取得已安裝",
+    "presets": "預設",
+    "runTweaks": "執行調整",
+    "undoTweaks": "復原調整",
+    "refresh": "重新整理",
+    "browse": "瀏覽",
+    "download": "下載",
+    "mount": "掛載",
+    "modify": "修改",
+    "export": "匯出",
+    "writeUsb": "寫入 USB",
+    "cleanReset": "清除並重設",
+    "import": "匯入",
+    "exportConfig": "匯出設定",
+    "about": "關於",
+    "documentation": "文件",
+    "sponsors": "贊助者",
+    "theme": "主題",
+    "themeAuto": "自動",
+    "themeDark": "深色",
+    "themeLight": "淺色",
+    "fontScaling": "字體縮放",
+    "language": "語言",
+    "winget": "WinGet",
+    "choco": "Chocolatey"
+  },
+  "categories": {
+    "browsers": "瀏覽器",
+    "development": "開發工具",
+    "utilities": "工具程式",
+    "games": "遊戲",
+    "social": "社交",
+    "media": "媒體",
+    "essentialTweaks": "基本調整",
+    "advancedTweaks": "進階調整",
+    "customizeTweaks": "自訂調整"
+  },
+  "descriptions": {
+    "telemetry": "停用遙測",
+    "bloatware": "移除預裝應用",
+    "debloat": "清理系統",
+    "essentialTweaks": "基本系統調整",
+    "advancedTweaks": "進階系統調整"
+  }
+}
