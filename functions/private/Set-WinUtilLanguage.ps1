@@ -287,11 +287,16 @@ function Initialize-WinUtilLanguageMenu {
             Rebuild-PanelsWithLanguage
         }
 
-        # Clear existing menu items (except header)
-        if ($sync.LanguagePopupMenu.Items.Count -gt 1) {
-            while ($sync.LanguagePopupMenu.Items.Count -gt 1) {
-                $sync.LanguagePopupMenu.Items.RemoveAt(1)
-            }
+        # Get LanguageMenu from Form (Menu control)
+        $langMenu = $sync["Form"].FindName("LanguageMenu")
+        if ($null -eq $langMenu) {
+            Write-Warning "LanguageMenu not found in XAML"
+            return
+        }
+
+        # Clear existing menu items (except header and separator at index 0,1)
+        while ($langMenu.Items.Count -gt 2) {
+            $langMenu.Items.RemoveAt(2)
         }
 
         # Add menu items for each language
@@ -322,7 +327,7 @@ function Initialize-WinUtilLanguageMenu {
                 Rebuild-PanelsWithLanguage
             })
 
-            $sync.LanguagePopupMenu.Items.Add($menuItem)
+            $langMenu.Items.Add($menuItem)
         }
     }
 }

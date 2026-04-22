@@ -1063,10 +1063,10 @@
                     PlacementTarget="{Binding ElementName=LanguageButton}" Placement="Bottom"
                     HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Border Background="{DynamicResource MainBackgroundColor}" BorderBrush="{DynamicResource MainForegroundColor}" BorderThickness="1" CornerRadius="0" Margin="0">
-                        <StackPanel Name="LanguagePopupMenu" Background="{DynamicResource MainBackgroundColor}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="150">
+                        <Menu Name="LanguageMenu" Background="{DynamicResource MainBackgroundColor}" MinWidth="150">
                             <MenuItem FontSize="{DynamicResource ButtonFontSize}" Header="Language" IsEnabled="False" Foreground="{DynamicResource MainForegroundColor}"/>
                             <Separator/>
-                        </StackPanel>
+                        </Menu>
                     </Border>
                 </Popup>
 
