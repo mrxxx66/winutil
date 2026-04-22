@@ -244,11 +244,16 @@ function Initialize-WinUtilLanguageMenu {
         $systemLocale = Get-Culture | Select-Object -ExpandProperty IetfLanguageTag
         Write-Debug "System locale detected: $systemLocale"
 
-        # Map system locale to supported language (fuzzy match for Chinese)
+        # Normalize system locale (replace dash with underscore for matching)
+        $normalizedSystemLocale = $systemLocale -replace '-', '_'
+
+        # Map system locale to supported language
         $defaultLang = 'en'
         foreach ($lang in $languages) {
             if ($lang.Code -eq 'en') { continue }
-            if ($systemLocale -like "$($lang.Code)*" -or $systemLocale -like "*$($lang.Code)*") {
+            # Check both original and normalized forms
+            if ($systemLocale -like "$($lang.Code)*" -or $systemLocale -like "*$($lang.Code)*" -or
+                $normalizedSystemLocale -like "$($lang.Code)*" -or $normalizedSystemLocale -like "*$($lang.Code)*") {
                 $defaultLang = $lang.Code
                 Write-Debug "Matched system locale to: $($lang.Code)"
                 break
@@ -259,7 +264,7 @@ function Initialize-WinUtilLanguageMenu {
         if ($defaultLang -ne 'en') {
             Write-Debug "Auto-applying default language: $defaultLang"
             Set-WinUtilLanguage -Code $defaultLang
-            # Download locale if needed
+            # Get locale if needed
             $null = Get-WinUtilLocale -Code $defaultLang
             if ($null -ne $sync.uiTranslations) {
                 Set-WinUtilLanguageUI
