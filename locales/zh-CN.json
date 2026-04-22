@@ -1,7 +1,7 @@
 {
   "_metadata": {
     "name": "简体中文",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "WinUtil Contributors"
   },
   "ui": {
@@ -41,15 +41,16 @@
     "choco": "Chocolatey"
   },
   "categories": {
-    "browsers": "浏览器",
-    "development": "开发工具",
-    "utilities": "工具程序",
-    "games": "游戏",
-    "social": "社交",
-    "media": "媒体",
-    "essentialTweaks": "基本调整",
-    "advancedTweaks": "高级调整",
-    "customizeTweaks": "自定义调整"
+    "AI-Automation": "AI 自动化",
+    "Browsers": "浏览器",
+    "Communications": "通讯",
+    "Development": "开发工具",
+    "Document": "文档",
+    "Games": "游戏",
+    "Microsoft Tools": "微软工具",
+    "Multimedia Tools": "多媒体工具",
+    "Pro Tools": "专业工具",
+    "Utilities": "工具程序"
   },
   "descriptions": {
     "telemetry": "禁用遥测",
@@ -57,5 +58,503 @@
     "debloat": "清理系统",
     "essentialTweaks": "基本系统调整",
     "advancedTweaks": "高级系统调整"
+  },
+  "applications": {
+    "WPFInstall7zip": {
+      "content": "7-Zip",
+      "description": "免费开源的解压缩工具"
+    },
+    "WPFInstallAdobe": {
+      "content": "Adobe Acrobat Reader",
+      "description": "PDF 阅读器"
+    },
+    "WPFInstallAdvancedIPScanner": {
+      "content": "Advanced IP Scanner",
+      "description": "网络扫描工具"
+    },
+    "WPFInstallAffinity": {
+      "content": "Affinity 应用套件",
+      "description": "专业设计软件"
+    },
+    "WPFInstallAIMP": {
+      "content": "AIMP",
+      "description": "音乐播放器"
+    },
+    "WPFInstallAlacritty": {
+      "content": "Alacritty 终端",
+      "description": "GPU 加速终端"
+    },
+    "WPFInstallAnaconda3": {
+      "content": "Anaconda",
+      "description": "Python 数据科学平台"
+    },
+    "WPFInstallAnki": {
+      "content": "Anki",
+      "description": "记忆卡片软件"
+    },
+    "WPFInstallAnyDesk": {
+      "content": "AnyDesk",
+      "description": "远程桌面软件"
+    },
+    "WPFInstallAnythingLLM": {
+      "content": "AnythingLLM",
+      "description": "本地 AI 文档工具"
+    },
+    "WPFInstallAudacity": {
+      "content": "Audacity",
+      "description": "音频编辑器"
+    },
+    "WPFInstallAutoruns": {
+      "content": "Autoruns",
+      "description": "启动项管理工具"
+    },
+    "WPFInstallAutoHotkey": {
+      "content": "AutoHotkey",
+      "description": "自动化脚本工具"
+    },
+    "WPFInstallAzureDataStudio": {
+      "content": "Azure Data Studio",
+      "description": "数据库管理工具"
+    },
+    "WPFInstallBrave": {
+      "content": "Brave 浏览器",
+      "description": "注重隐私的浏览器"
+    },
+    "WPFInstallBitwarden": {
+      "content": "Bitwarden",
+      "description": "开源密码管理器"
+    },
+    "WPFInstallBleachBit": {
+      "content": "BleachBit",
+      "description": "系统清理工具"
+    },
+    "WPFInstallBlender": {
+      "content": "Blender",
+      "description": "3D 创作套件"
+    },
+    "WPFInstallBeeper": {
+      "content": "Beeper",
+      "description": "统一消息应用"
+    },
+    "WPFInstallBulkCrapUninstaller": {
+      "content": "Bulk Crap Uninstaller",
+      "description": "批量卸载工具"
+    },
+    "WPFInstallChrome": {
+      "content": "Google Chrome",
+      "description": "Google 浏览器"
+    },
+    "WPFInstallChromium": {
+      "content": "Chromium",
+      "description": "开源浏览器"
+    },
+    "WPFInstallVSCode": {
+      "content": "Visual Studio Code",
+      "description": "代码编辑器"
+    },
+    "WPFInstallVSCodeInsiders": {
+      "content": "VS Code Insiders",
+      "description": "VS Code 测试版"
+    },
+    "WPFInstallCursor": {
+      "content": "Cursor",
+      "description": "AI 代码编辑器"
+    },
+    "WPFInstallDocker": {
+      "content": "Docker Desktop",
+      "description": "容器化平台"
+    },
+    "WPFInstallDiscord": {
+      "content": "Discord",
+      "description": "游戏语音聊天"
+    },
+    "WPFInstallDotnet": {
+      "content": ".NET Runtime",
+      "description": ".NET 运行时"
+    },
+    "WPFInstallEpicGames": {
+      "content": "Epic Games",
+      "description": "游戏平台"
+    },
+    "WPFInstallEartrumpet": {
+      "content": "Eartrumpet",
+      "description": "音量混音器"
+    },
+    "WPFInstallEdge": {
+      "content": "Microsoft Edge",
+      "description": "微软浏览器"
+    },
+    "WPFInstallEmby": {
+      "content": "Emby Server",
+      "description": "媒体服务器"
+    },
+    "WPFInstallExpressVPN": {
+      "content": "ExpressVPN",
+      "description": "VPN 服务"
+    },
+    "WPFInstallFileZilla": {
+      "content": "FileZilla",
+      "description": "FTP 客户端"
+    },
+    "WPFInstallFirefox": {
+      "content": "Mozilla Firefox",
+      "description": "火狐浏览器"
+    },
+    "WPFInstallFoxit": {
+      "content": "Foxit PDF",
+      "description": "PDF 阅读器"
+    },
+    "WPFInstallGit": {
+      "content": "Git",
+      "description": "版本控制系统"
+    },
+    "WPFInstallGithubDesktop": {
+      "content": "GitHub Desktop",
+      "description": "GitHub 客户端"
+    },
+    "WPFInstallGitkraken": {
+      "content": "GitKraken",
+      "description": "Git 图形客户端"
+    },
+    "WPFInstallGo": {
+      "content": "Go 语言",
+      "description": "编程语言"
+    },
+    "WPFInstallGodot": {
+      "content": "Godot Engine",
+      "description": "游戏引擎"
+    },
+    "WPFInstallHashiCorpTerraform": {
+      "content": "Terraform",
+      "description": "基础设施即代码"
+    },
+    "WPFInstallHeidiSQL": {
+      "content": "HeidiSQL",
+      "description": "MySQL 管理工具"
+    },
+    "WPFInstallHomebridge": {
+      "content": "Homebridge",
+      "description": "HomeKit 桥接"
+    },
+    "WPFInstallHomeAssistant": {
+      "content": "Home Assistant",
+      "description": "智能家居平台"
+    },
+    "WPFInstallHwinfo": {
+      "content": "HWiNFO",
+      "description": "硬件信息工具"
+    },
+    "WPFInstallImageglass": {
+      "content": "ImageGlass",
+      "description": "图片查看器"
+    },
+    "WPFInstallJava": {
+      "content": "Java Runtime",
+      "description": "Java 运行时"
+    },
+    "WPFInstallJetbrains": {
+      "content": "JetBrains Toolbox",
+      "description": "开发工具管理"
+    },
+    "WPFInstallKeePass": {
+      "content": "KeePass XC",
+      "description": "密码管理器"
+    },
+    "WPFInstallKrita": {
+      "content": "Krita",
+      "description": "数字绘画软件"
+    },
+    "WPFInstallLibreOffice": {
+      "content": "LibreOffice",
+      "description": "开源办公套件"
+    },
+    "WPFInstallMalwarebytes": {
+      "content": "Malwarebytes",
+      "description": "恶意软件防护"
+    },
+    "WPFInstallMatlab": {
+      "content": "MATLAB",
+      "description": "数值计算软件"
+    },
+    "WPFInstallMCreator": {
+      "content": "MCreator",
+      "description": "Minecraft 模组工具"
+    },
+    "WPFInstallMediaInfo": {
+      "content": "MediaInfo",
+      "description": "多媒体信息查看"
+    },
+    "WPFInstallMinecraft": {
+      "content": "Minecraft",
+      "description": "我的世界"
+    },
+    "WPFInstallMobaXterm": {
+      "content": "MobaXterm",
+      "description": "增强型终端"
+    },
+    "WPFInstallModernFlyouts": {
+      "content": "Modern Flyouts",
+      "description": "现代化弹窗"
+    },
+    "WPFInstallMullvadVPN": {
+      "content": "Mullvad VPN",
+      "description": "VPN 服务"
+    },
+    "WPFInstallNextcloud": {
+      "content": "Nextcloud",
+      "description": "自托管云存储"
+    },
+    "WPFInstallNodejs": {
+      "content": "Node.js",
+      "description": "JavaScript 运行时"
+    },
+    "WPFInstallNotepadPlus": {
+      "content": "Notepad++",
+      "description": "文本编辑器"
+    },
+    "WPFInstallOBS": {
+      "content": "OBS Studio",
+      "description": "直播录制软件"
+    },
+    "WPFInstallOpenHashTab": {
+      "content": "OpenHashTab",
+      "description": "文件哈希校验"
+    },
+    "WPFInstallOpenVPN": {
+      "content": "OpenVPN",
+      "description": "VPN 客户端"
+    },
+    "WPFInstallOpera": {
+      "content": "Opera 浏览器",
+      "description": "Opera 浏览器"
+    },
+    "WPFInstallOracleVM": {
+      "content": "VirtualBox",
+      "description": "免费虚拟机"
+    },
+    "WPFInstallPaintDotNet": {
+      "content": "Paint.net",
+      "description": "图片编辑软件"
+    },
+    "WPFInstallParsec": {
+      "content": "Parsec",
+      "description": "远程桌面"
+    },
+    "WPFInstallPdf24": {
+      "content": "PDF24 Creator",
+      "description": "PDF 创建工具"
+    },
+    "WPFInstallPlaynite": {
+      "content": "Playnite",
+      "description": "游戏库管理器"
+    },
+    "WPFInstallPlex": {
+      "content": "Plex",
+      "description": "媒体服务器"
+    },
+    "WPFInstallPortainer": {
+      "content": "Portainer",
+      "description": "Docker 管理"
+    },
+    "WPFInstallPostman": {
+      "content": "Postman",
+      "description": "API 测试工具"
+    },
+    "WPFInstallPowerAutomate": {
+      "content": "Power Automate",
+      "description": "自动化工具"
+    },
+    "WPFInstallPowerBI": {
+      "content": "Power BI",
+      "description": "商业智能工具"
+    },
+    "WPFInstallPowerToys": {
+      "content": "PowerToys",
+      "description": "系统增强工具"
+    },
+    "WPFInstallPrusaSlicer": {
+      "content": "PrusaSlicer",
+      "description": "3D 打印切片"
+    },
+    "WPFInstallPython": {
+      "content": "Python",
+      "description": "编程语言"
+    },
+    "WPFInstallqbittorrent": {
+      "content": "qBittorrent",
+      "description": "BT 下载客户端"
+    },
+    "WPFInstallRainmeter": {
+      "content": "Rainmeter",
+      "description": "桌面自定义"
+    },
+    "WPFInstallRazer": {
+      "content": "Razer Synapse",
+      "description": "雷蛇驱动管理"
+    },
+    "WPFInstallRedis": {
+      "content": "Redis",
+      "description": "内存数据库"
+    },
+    "WPFInstallRevoUninstaller": {
+      "content": "Revo Uninstaller",
+      "description": "卸载清理工具"
+    },
+    "WPFInstallRust": {
+      "content": "Rust",
+      "description": "编程语言"
+    },
+    "WPFInstallShareX": {
+      "content": "ShareX",
+      "description": "截图上传工具"
+    },
+    "WPFInstallSignal": {
+      "content": "Signal",
+      "description": "私密通讯"
+    },
+    "WPFInstallSimplewall": {
+      "content": "Simplewall",
+      "description": "防火墙工具"
+    },
+    "WPFInstallSketchbook": {
+      "content": "SketchBook",
+      "description": "绘图软件"
+    },
+    "WPFInstallSlack": {
+      "content": "Slack",
+      "description": "团队协作"
+    },
+    "WPFInstallSteam": {
+      "content": "Steam",
+      "description": "游戏平台"
+    },
+    "WPFInstallSublimeText": {
+      "content": "Sublime Text",
+      "description": "代码编辑器"
+    },
+    "WPFInstallSpotify": {
+      "content": "Spotify",
+      "description": "音乐服务"
+    },
+    "WPFInstallSqlite": {
+      "content": "SQLite",
+      "description": "轻量级数据库"
+    },
+    "WPFInstallStarship": {
+      "content": "Starship",
+      "description": "终端提示符"
+    },
+    "WPFInstallSysinternals": {
+      "content": "Sysinternals",
+      "description": "系统工具套件"
+    },
+    "WPFInstallTeams": {
+      "content": "Microsoft Teams",
+      "description": "团队协作软件"
+    },
+    "WPFInstallTeamviewer": {
+      "content": "TeamViewer",
+      "description": "远程桌面"
+    },
+    "WPFInstallTeamSpeak": {
+      "content": "TeamSpeak",
+      "description": "语音通话"
+    },
+    "WPFInstallTermius": {
+      "content": "Termius",
+      "description": "终端模拟器"
+    },
+    "WPFInstallThunderbird": {
+      "content": "Thunderbird",
+      "description": "邮件客户端"
+    },
+    "WPFInstallTixati": {
+      "content": "Tixati",
+      "description": "BT 下载工具"
+    },
+    "WPFInstallTor": {
+      "content": "Tor Browser",
+      "description": "洋葱浏览器"
+    },
+    "WPFInstallTrello": {
+      "content": "Trello",
+      "description": "项目管理"
+    },
+    "WPFInstallTrueNAS": {
+      "content": "TrueNAS",
+      "description": "开源 NAS"
+    },
+    "WPFInstallTunnelbear": {
+      "content": "TunnelBear",
+      "description": "VPN 服务"
+    },
+    "WPFInstallTwitch": {
+      "content": "Twitch",
+      "description": "游戏直播"
+    },
+    "WPFInstallUltraVNC": {
+      "content": "UltraVNC",
+      "description": "远程桌面"
+    },
+    "WPFInstallUnity": {
+      "content": "Unity",
+      "description": "游戏引擎"
+    },
+    "WPFInstallVirtualBox": {
+      "content": "VirtualBox",
+      "description": "虚拟机"
+    },
+    "WPFInstallVisualStudio": {
+      "content": "Visual Studio",
+      "description": "开发环境"
+    },
+    "WPFInstallVLC": {
+      "content": "VLC 播放器",
+      "description": "多媒体播放器"
+    },
+    "WPFInstallVMware": {
+      "content": "VMware",
+      "description": "虚拟机"
+    },
+    "WPFInstallWarframe": {
+      "content": "Warframe",
+      "description": "网络游戏"
+    },
+    "WPFInstallWatchguard": {
+      "content": "WatchGuard",
+      "description": "VPN 客户端"
+    },
+    "WPFInstallWarp": {
+      "content": "Cloudflare WARP",
+      "description": "VPN 和 DNS"
+    },
+    "WPFInstallWindscribe": {
+      "content": "Windscribe",
+      "description": "VPN 服务"
+    },
+    "WPFInstallWingetUI": {
+      "content": "WingetUI",
+      "description": "WinGet 界面"
+    },
+    "WPFInstallWireguard": {
+      "content": "WireGuard",
+      "description": "VPN 协议"
+    },
+    "WPFInstallWiztree": {
+      "content": "WizTree",
+      "description": "磁盘空间分析"
+    },
+    "WPFInstallWox": {
+      "content": "Wox",
+      "description": "快速启动器"
+    },
+    "WPFInstallWsl": {
+      "content": "WSL",
+      "description": "Linux 子系统"
+    },
+    "WPFInstallZoom": {
+      "content": "Zoom",
+      "description": "视频会议"
+    }
   }
 }

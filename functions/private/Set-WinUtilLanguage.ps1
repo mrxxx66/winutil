@@ -166,6 +166,22 @@ function Set-WinUtilLanguage {
             }
         }
 
+        # Apply application translations
+        if ($null -ne $locale.applications) {
+            foreach ($appKey in $locale.applications.PSObject.Properties.Name) {
+                $appTrans = $locale.applications.$appKey
+                $appProp = $sync.configs.applications.PSObject.Properties[$appKey]
+                if ($null -ne $appProp -and $null -ne $appTrans) {
+                    if ($null -ne $appTrans.content) {
+                        $appProp.Value.content = $appTrans.content
+                    }
+                    if ($null -ne $appTrans.description) {
+                        $appProp.Value.description = $appTrans.description
+                    }
+                }
+            }
+        }
+
         $sync.currentLocale = $Code
         Write-Debug "Language set to '$Code'"
     }
