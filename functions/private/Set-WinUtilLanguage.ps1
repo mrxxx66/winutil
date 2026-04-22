@@ -367,15 +367,17 @@ function Rebuild-PanelsWithLanguage {
         }
 
         # Re-bind button click handlers
-        $sync.keys | ForEach-Object {
-            if ($sync[$psitem]) {
-                $typeName = ($sync[$psitem].GetType() | Select-Object -ExpandProperty Name)
+        # Copy keys to array first to avoid enumeration issues during modification
+        $keysToProcess = @($sync.keys)
+        foreach ($key in $keysToProcess) {
+            if ($sync[$key]) {
+                $typeName = ($sync[$key].GetType() | Select-Object -ExpandProperty Name)
 
-                if ($typeName -eq "Button" -and $psitem -notmatch "MenuItem|Popup") {
+                if ($typeName -eq "Button" -and $key -notmatch "MenuItem|Popup") {
                     # Skip already bound buttons
-                    $handlerName = "Bound_$($psitem)"
+                    $handlerName = "Bound_$($key)"
                     if (-not $sync[$handlerName]) {
-                        $sync[$psitem].Add_Click({
+                        $sync[$key].Add_Click({
                             [System.Object]$Sender = $args[0]
                             Invoke-WPFButton $Sender.name
                         })
